@@ -1,86 +1,66 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #222;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-}
-h1 {
-  margin-bottom: 20px;
-}
-.buttoncontainer {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-.teks {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Menyelaraskan konten ke atas */
-  height: 100vh; /* Memastikan div mengambil tinggi penuh layar */
-  margin-top: 50px; /* Tambahkan jarak dari atas */
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 10px;
-  text-align: center;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #45a049; /* Warna saat hover */
-}
-#status {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #fff, #fff); /* Default gradient */
-  background-clip: text;
+.typing-text {
+  background: linear-gradient(to right, #9900ff, #d33476, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: background 0.5s ease;
-
-  /* Pindahkan teks ke atas */
-  position: relative;
-  top: -20px; /* Angka negatif memindahkan ke atas */
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+  border-right: 3px solid #3b82f6;
+  animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
 }
 
-#circle {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background-color: green;
-  animation: breath 3s infinite;
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
-@keyframes breath {
-  0%,
-  100% {
-    transform: scale(1);
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
   }
   50% {
-    transform: scale(1.2);
+    border-color: #3b82f6;
   }
 }
 
-@keyframes fast-breath {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.4);
-  }
+.status-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.status-active {
+  color: #34d399; /* Green */
+  transform: scale(1.1);
+}
+
+.status-inactive {
+  color: #f87171; /* Red */
+  transform: scale(1);
+}
+
+.status-waiting {
+  color: #ffffff; /* White */
+  transform: scale(1);
+}
+
+/* Button transition */
+.toggle-button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-button.active {
+  background-color: #34d399; /* Green */
+  transform: scale(1.1);
+}
+
+.toggle-button.inactive {
+  background-color: #ff0000; /* Gray */
+  transform: scale(1);
 }
