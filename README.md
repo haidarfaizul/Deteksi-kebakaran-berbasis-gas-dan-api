@@ -35,4 +35,4 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/haidarfaizul/Deteksi-kebakaran-berbasis-gas-dan-api.git
+   git clone https://github.com/haidarfaizul/Fire-Detection.git
